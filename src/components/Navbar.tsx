@@ -7,6 +7,7 @@ import NewIcon from "./ui/icons/NewIcon";
 import SearchFillIcon from "./ui/icons/SearchFillIcon";
 import SearchIcon from "./ui/icons/SearchIcon";
 import { usePathname } from "next/navigation";
+import ColorButton from "./ui/ColorButton";
 
 const menu = [
   { href: "/", icon: <HomeIcon />, clickedIcon: <HomeFillIcon /> },
@@ -17,12 +18,12 @@ const menu = [
 export default function Navbar() {
   const pathName = usePathname();
   return (
-    <div>
+    <div className="flex items-center justify-between px-6">
       <Link href="/">
-        <h1>Instagram</h1>
+        <h1 className="text-3xl font-bold">Instagram</h1>
       </Link>
       <nav>
-        <ul>
+        <ul className="flex items-center gap-2 p-4">
           {menu.map((item) => (
             <li key={item.href}>
               <Link href={item.href}>
@@ -30,6 +31,7 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
+          <ColorButton text="Sign in" onClick={() => {}} />
         </ul>
       </nav>
     </div>
