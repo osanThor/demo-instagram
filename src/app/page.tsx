@@ -12,7 +12,7 @@ export default async function HomePage() {
     redirect("/auth/signin");
   }
   return (
-    <section className="flex flex-col w-full max-w-[850px] p-4 md:flex-row">
+    <section className="flex flex-col w-full max-w-[850px] p-4 mx-auto md:flex-row">
       <div className="w-full basis-3/4">
         <FollowingBar />
         <PostList />
