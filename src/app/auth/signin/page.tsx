@@ -21,7 +21,7 @@ export default async function SigninPage({
   const providers = (await getProviders()) ?? {};
 
   return (
-    <section className="flex justify-center mt-[24%]">
+    <section className="flex justify-center items-center mt-[10%]">
       <Signin providers={providers} callbackUrl={callbackUrl ?? '/'} />
     </section>
   );
