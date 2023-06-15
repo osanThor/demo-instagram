@@ -3,8 +3,8 @@ import Avatar from "./Avatar";
 import Image from "next/image";
 import HeartIcon from "./ui/icons/HeartIcon";
 import BookmarkIcon from "./ui/icons/BookmarkIcon";
-import { parseDate } from "@/utils/datae";
-import SmileIcons from "./ui/icons/SmileIcons";
+import { parseDate } from "@/utils/date";
+import CommentForm from "./CommentForm";
 
 type Props = { post: SimplePost };
 export default function PostListCard({ post }: Props) {
@@ -37,15 +37,7 @@ export default function PostListCard({ post }: Props) {
         <p className="my-2 text-xs uppercase text-neutral-500">
           {parseDate(createAt)}
         </p>
-        <form className="flex items-center border-t border-neutral-300">
-          <SmileIcons />
-          <input
-            className="w-full p-3 ml-2 border-none outline-none"
-            type="text"
-            placeholder="Add a comment..."
-          />
-          <button className="ml-2 font-bold text-sky-500">Post</button>
-        </form>
+        <CommentForm />
       </div>
     </article>
   );

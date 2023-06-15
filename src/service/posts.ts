@@ -8,15 +8,15 @@ const simplePostProjection = `
     "likes": likes[]->username,
     "text": comments[0].comment,
     "comments": count(comments),
-    "id":_id,
-    "createAt":_createAt
+    "id": _id,
+    "createAt": _createdAt
 `;
 export async function getFollowingPostsOf(username: string) {
   return client
     .fetch(
       `*[_type == "post" && author->username == "${username}"
           || author._ref in *[_type == "user" && username == "${username}"].following[]._ref]
-          | order(_createAt desc){${simplePostProjection}}`
+          | order(_createdAt desc){${simplePostProjection}}`
     )
     .then((posts) =>
       posts.map((post: SimplePost) => ({ ...post, image: urlFor(post.image) }))

@@ -39,7 +39,7 @@ function getContainerSize(size: AvatarSize): string {
     case "small":
       return "w-9 h-9";
     case "medium":
-      return "w-11 h-1";
+      return "w-11 h-11";
     case "large":
       return "w-[68px] h-[68px]";
   }
