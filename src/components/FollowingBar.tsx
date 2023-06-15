@@ -11,7 +11,7 @@ export default function FollowingBar() {
   const users = data?.following;
 
   return (
-    <section className="flex items-center justify-center w-full px-2 py-4 shadow-sm shadow-neutral-300 mb-4 rounded-lg min-h-[90px] overflow-x-auto">
+    <section className="flex items-center justify-center w-full px-2 py-4 shadow-sm shadow-neutral-300 mb-4 rounded-lg min-h-[90px] overflow-x-auto z-0 relative">
       {loading ? (
         <PropagateLoader size={8} color="red" />
       ) : (
