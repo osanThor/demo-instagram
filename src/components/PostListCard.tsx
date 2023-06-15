@@ -1,13 +1,11 @@
 import { SimplePost } from "@/model/post";
 import Avatar from "./Avatar";
 import Image from "next/image";
-import HeartIcon from "./ui/icons/HeartIcon";
-import BookmarkIcon from "./ui/icons/BookmarkIcon";
-import { parseDate } from "@/utils/date";
 import CommentForm from "./CommentForm";
+import ActionBar from "./ActionBar";
 
-type Props = { post: SimplePost };
-export default function PostListCard({ post }: Props) {
+type Props = { post: SimplePost; priority?: boolean };
+export default function PostListCard({ post, priority = false }: Props) {
   const { userImage, username, image, createAt, likes, text } = post;
   return (
     <article className="border border-gray-200 rounded-lg shadow-md">
@@ -21,24 +19,15 @@ export default function PostListCard({ post }: Props) {
         alt={`photo by ${username}`}
         width={500}
         height={500}
+        priority={priority}
       />
-      <div className="flex justify-between px-4 my-2">
-        <HeartIcon />
-        <BookmarkIcon />
-      </div>
-      <div className="px-4 py-1">
-        <p className="mb-2 text-sm font-bold">{`${likes?.length ?? 0} ${
-          likes?.length > 1 ? "likes" : "like"
-        }`}</p>
-        <p>
-          <span className="mr-1 font-bold">{username}</span>
-          {text}
-        </p>
-        <p className="my-2 text-xs uppercase text-neutral-500">
-          {parseDate(createAt)}
-        </p>
-        <CommentForm />
-      </div>
+      <ActionBar
+        likes={likes}
+        username={username}
+        text={text}
+        createAt={createAt}
+      />
+      <CommentForm />
     </article>
   );
 }
