@@ -78,6 +78,6 @@ export async function getSavedPostsOf(username: string) {
 function mapPosts(posts: SimplePost[]) {
   return posts.map((post: SimplePost) => ({
     ...post,
-    iamge: urlFor(post.image),
+    image: urlFor(post.image),
   }));
 }

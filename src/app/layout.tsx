@@ -22,10 +22,10 @@ export default function RootLayout({
         <AuthContext>
           <header className="sticky top-0 z-10 bg-white border-b">
             <div className="max-w-screen-xl mx-auto">
-            <Navbar />
+              <Navbar />
             </div>
           </header>
-          <main className="flex justify-center w-full ">
+          <main className="flex justify-center w-full max-w-screen-xl mx-auto">
             <SWRConfigContext>{children}</SWRConfigContext>
           </main>
         </AuthContext>
