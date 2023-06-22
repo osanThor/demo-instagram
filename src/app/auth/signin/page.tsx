@@ -1,5 +1,6 @@
 import Signin from "@/components/Signin";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { getProviders } from "next-auth/react";
 import { redirect } from "next/navigation";
@@ -8,6 +9,10 @@ type Props = {
   searchParams: {
     callbackUrl: string;
   };
+};
+export const metadata: Metadata = {
+  title: "SignIn",
+  description: "SignUp or Login Instagram",
 };
 
 export default async function SigninPage({
@@ -22,7 +27,7 @@ export default async function SigninPage({
 
   return (
     <section className="flex justify-center items-center mt-[10%]">
-      <Signin providers={providers} callbackUrl={callbackUrl ?? '/'} />
+      <Signin providers={providers} callbackUrl={callbackUrl ?? "/"} />
     </section>
   );
 }

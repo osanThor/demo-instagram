@@ -3,12 +3,13 @@ import "./globals.css";
 import { Open_Sans } from "next/font/google";
 import AuthContext from "@/context/AuthContext";
 import SWRConfigContext from "@/context/SWRConfigContext";
+import { Metadata } from "next";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Instagram",
-  description: "make Instagram by create next app",
+export const metadata: Metadata = {
+  title: { default: "Instagram", template: "Instagram | %s" },
+  description: "Instagram Photos",
 };
 
 export default function RootLayout({

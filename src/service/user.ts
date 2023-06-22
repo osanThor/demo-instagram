@@ -56,7 +56,7 @@ export async function searchUsers(keyword?: string) {
     );
 }
 
-export async function gertuserForProfile(username: string) {
+export async function getuserForProfile(username: string) {
   return client
     .fetch(
       `*[_type == "user" && username == "${username}"][0]{
