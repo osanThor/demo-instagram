@@ -48,12 +48,7 @@ export default function PostDetail({ post }: Props) {
               )
             )}
         </ul>
-        <ActionBar
-          likes={likes}
-          username={username}
-          text={text}
-          createAt={createAt}
-        />
+        <ActionBar post={post} />
         <CommentForm />
       </div>
     </section>
