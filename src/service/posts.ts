@@ -22,7 +22,6 @@ export async function getFollowingPostsOf(username: string) {
       posts.map((post: SimplePost) => ({ ...post, image: urlFor(post.image) }))
     );
 }
-
 export async function getPost(id: string) {
   return client
     .fetch(
@@ -40,7 +39,6 @@ export async function getPost(id: string) {
     )
     .then(mapPosts);
 }
-
 export async function getPostsOf(username: string) {
   return client
     .fetch(
@@ -74,10 +72,27 @@ export async function getSavedPostsOf(username: string) {
     )
     .then(mapPosts);
 }
-
 function mapPosts(posts: SimplePost[]) {
   return posts.map((post: SimplePost) => ({
     ...post,
     image: urlFor(post.image),
   }));
+}
+export async function likePost(postId: string, userId: string) {
+  return client
+    .patch(postId)
+    .setIfMissing({ likes: [] })
+    .append("likes", [
+      {
+        _ref: userId,
+        _type: "reference",
+      },
+    ])
+    .commit({ autoGenerateArrayKeys: true });
+}
+export async function dislikePost(postId: string, userId: string) {
+  return client
+    .patch(postId)
+    .unset([`likes[_ref=="${userId}"]`])
+    .commit();
 }
