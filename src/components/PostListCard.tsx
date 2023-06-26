@@ -11,7 +11,7 @@ import PostUserAvatar from "./PostUserAvatar";
 
 type Props = { post: SimplePost; priority?: boolean };
 export default function PostListCard({ post, priority = false }: Props) {
-  const { userImage, username, image, createAt, likes, text } = post;
+  const { userImage, username, image, text, comments } = post;
   const [openModal, setOpenModal] = useState(false);
   return (
     <article className="border border-gray-200 rounded-lg shadow-md">
@@ -25,7 +25,18 @@ export default function PostListCard({ post, priority = false }: Props) {
         priority={priority}
         onClick={() => setOpenModal(true)}
       />
-      <ActionBar post={post} />
+      <ActionBar post={post}>
+        <p>
+          <span className="mr-1 font-bold">{username}</span>
+          {text}
+        </p>
+        {comments > 1 && (
+          <button
+            className="my-2 font-bold text-sky-500"
+            onClick={() => setOpenModal(true)}
+          >{`View all ${comments} comments`}</button>
+        )}
+      </ActionBar>
       <CommentForm />
       {openModal && (
         <ModalPortal>

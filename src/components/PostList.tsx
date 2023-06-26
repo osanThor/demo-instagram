@@ -1,6 +1,4 @@
 "use client";
-import { SimplePost } from "@/model/post";
-import useSWR from "swr";
 import PostListCard from "./PostListCard";
 import GridSpinner from "./ui/GridSpinner";
 import usePosts from "@/hooks/posts";
