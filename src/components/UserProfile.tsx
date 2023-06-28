@@ -9,8 +9,8 @@ export default function UserProfile({ user }: Props) {
   const { image, username, name, following, followers, posts } = user;
   const info = [
     { title: "posts", data: posts },
-    { title: "followers", number: followers },
-    { title: "following", number: following },
+    { title: "followers", data: followers },
+    { title: "following", data: following },
   ];
   return (
     <section className="flex flex-col items-center justify-center w-full py-12 border-b md:flex-row border-neutral-300">
