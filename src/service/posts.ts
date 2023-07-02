@@ -1,6 +1,5 @@
-import post from '../../sanity-studio/schemas/post';
-import { SimplePost } from './../model/post';
-import { client, urlFor } from './sanity';
+import { SimplePost } from "./../model/post";
+import { client, urlFor } from "./sanity";
 
 const simplePostProjection = `
     ...,
@@ -85,10 +84,10 @@ export async function likePost(postId: string, userId: string) {
   return client
     .patch(postId) //
     .setIfMissing({ likes: [] })
-    .append('likes', [
+    .append("likes", [
       {
         _ref: userId,
-        _type: 'reference',
+        _type: "reference",
       },
     ])
     .commit({ autoGenerateArrayKeys: true });
@@ -109,10 +108,10 @@ export async function addComment(
   return client
     .patch(postId) //
     .setIfMissing({ comments: [] })
-    .append('comments', [
+    .append("comments", [
       {
         comment,
-        author: { _ref: userId, _type: 'reference' },
+        author: { _ref: userId, _type: "reference" },
       },
     ])
     .commit({ autoGenerateArrayKeys: true });
