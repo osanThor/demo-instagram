@@ -123,7 +123,7 @@ export async function createPost(userId: string, text: string, file: Blob) {
     method: "POST",
     headers: {
       "content-type": file.type,
-      authorization: `Bearer $${process.env.SANITY_SECRET_TOKEN}`,
+      authorization: `Bearer ${process.env.SANITY_SECRET_TOKEN}`,
     },
     body: file,
   })
@@ -133,7 +133,7 @@ export async function createPost(userId: string, text: string, file: Blob) {
         {
           _type: "post",
           author: { _ref: userId },
-          photo: { assets: { _ref: result.document._id } },
+          photo: { asset: { _ref: result.document._id } },
           comments: [
             {
               comment: text,
