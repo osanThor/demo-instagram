@@ -12,9 +12,24 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Avatar from "./Avatar";
 
 const menu = [
-  { href: "/", icon: <HomeIcon />, clickedIcon: <HomeFillIcon /> },
-  { href: "/search", icon: <SearchIcon />, clickedIcon: <SearchFillIcon /> },
-  { href: "/new", icon: <NewIcon />, clickedIcon: <NewFillIcon /> },
+  {
+    href: "/",
+    icon: <HomeIcon />,
+    clickedIcon: <HomeFillIcon />,
+    title: "Home",
+  },
+  {
+    href: "/search",
+    icon: <SearchIcon />,
+    clickedIcon: <SearchFillIcon />,
+    title: "Search Users",
+  },
+  {
+    href: "/new",
+    icon: <NewIcon />,
+    clickedIcon: <NewFillIcon />,
+    title: "New Post",
+  },
 ];
 
 export default function Navbar() {
@@ -24,14 +39,14 @@ export default function Navbar() {
 
   return (
     <div className="flex items-center justify-between px-6">
-      <Link href="/">
+      <Link href="/" aria-label="home">
         <h1 className="text-3xl font-bold">Instagram</h1>
       </Link>
       <nav>
         <ul className="flex items-center gap-2 p-4">
           {menu.map((item) => (
             <li key={item.href}>
-              <Link href={item.href}>
+              <Link href={item.href} aria-label={item.title}>
                 {pathName === item.href ? item.clickedIcon : item.icon}
               </Link>
             </li>
