@@ -40,10 +40,10 @@ export default function Navbar() {
   return (
     <div className="flex items-center justify-between px-6">
       <Link href="/" aria-label="home">
-        <h1 className="text-3xl font-bold">Instagram</h1>
+        <h1 className="text-lg font-bold md:text-3xl">Instagram</h1>
       </Link>
       <nav>
-        <ul className="flex items-center gap-2 p-4">
+        <ul className="flex items-center gap-2 p-2 md:p-4">
           {menu.map((item) => (
             <li key={item.href}>
               <Link href={item.href} aria-label={item.title}>

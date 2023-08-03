@@ -20,7 +20,7 @@ export default function UserSearch() {
   };
   return (
     <section className="flex flex-col items-center w-full max-w-2xl mt-4">
-      <form className="w-full mb-4" onSubmit={onSubmit}>
+      <form className="w-full mb-4 px-4" onSubmit={onSubmit}>
         <input
           className="w-full p-3 text-xl border border-gray-400 outline-none"
           type="text"

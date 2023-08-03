@@ -14,7 +14,7 @@ export default function PostDetail({ post }: Props) {
   const comments = data?.comments;
 
   return (
-    <section className="flex w-full h-full">
+    <section className="flex flex-col w-full h-full md:flex-row">
       <div className="relative basis-3/5">
         <Image
           className="object-cover"

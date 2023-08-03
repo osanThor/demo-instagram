@@ -8,7 +8,7 @@ export default function PostGrid() {
   return (
     <div className="w-full text-center">
       {isLoading && <GridSpinner />}
-      <ul className="grid grid-cols-3 gap-4 px-8 py-4">
+      <ul className="grid grid-cols-3 gap-2 px-8 py-4 md:gap-4">
         {posts &&
           posts.map((post, index) => (
             <li key={post.id}>
