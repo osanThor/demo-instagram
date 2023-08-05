@@ -43,7 +43,7 @@ export default function Navbar() {
         <h1 className="text-lg font-bold md:text-3xl">Instagram</h1>
       </Link>
       <nav>
-        <ul className="flex items-center gap-2 p-2 md:p-4">
+        <ul className="flex items-center gap-2 px-0 py-2 md:p-4">
           {menu.map((item) => (
             <li key={item.href}>
               <Link href={item.href} aria-label={item.title}>

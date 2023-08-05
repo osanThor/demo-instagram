@@ -67,7 +67,7 @@ export default function NewPost({ user: { username, image } }: Props) {
   };
 
   return (
-    <section className="flex flex-col items-center w-full mt-6 man-w-xl px-4">
+    <section className="flex flex-col items-center w-full px-4 mt-6 man-w-xl">
       {loading && (
         <div className="absolute inset-0 pt-[30%] z-20 text-center bg-sky-500/20">
           <GridLoader />
